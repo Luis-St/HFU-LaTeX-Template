@@ -1,0 +1,67 @@
+\documentclass[
+	fontsize=12pt,          % default font size 12pt
+	paper=a4,               % DIN A4 page format
+	numbers=noenddot,       % remove dots behind chapter numbers (e.g. 1.5 not 1.5.)
+	listof=totoc,           % add list of figures, tables, etc. to ToC
+	listof=entryprefix,     % add entry name to figures, tables, etc.
+	listof=nochaptergap,    % no chapter gap for figures, tables, etc.
+	bibliography=totoc,     % add bibliography to ToC but without a chapter number
+	parskip=half,           % half line spacing between paragraphs
+	twoside,                % two-sided printing (book format)
+	open=right              % chapters start on right page (HFU requirement)
+]{scrbook}
+
+\input{preamble}                      % load preamble
+
+\begin{document}
+
+\include{framework/titlepage}           % title page
+
+\blankpage
+
+% Roman numbering für Vorspann
+\frontmatter
+\pagenumbering{Roman}
+
+\include{framework/abstract} % Abstract
+\tableofcontents % Contents
+
+\listoffigures % List of Figures
+\listoftables % List of Tables
+\
+
+% List of Code Listings nur wenn vorhanden
+\makeatletter
+\@ifundefined{c@lstlisting}{}{\lstlistoflistings}
+\makeatother
+
+\include{framework/abbreviations} % Abbreviations
+
+% Content - Hauptteil
+\mainmatter
+
+% Include chapters
+\input{chapters/01_introduction}
+\input{chapters/02_fundamentals}
+% Other chapters can be added similarly
+
+\blankpage
+
+% Bibliography
+\begin{singlespace}
+	\printbibliography[title=Literaturverzeichnis]
+\end{singlespace}
+
+\blankpage
+
+% Declaration of Authorship
+\include{framework/declaration_of_authorship}
+
+% Appendices
+\appendix
+
+\begin{appendices}
+	% \include{appendix/appendix1} % Example appendix
+\end{appendices}
+
+\end{document}

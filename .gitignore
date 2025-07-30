@@ -1,0 +1,25 @@
+# LaTeX
+auxil/
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz
+*.bcf
+*.out
+*.xml
+*.synctex(busy)
+*.bbl
+*.blg
+*.lof
+*.lot
+*.toc
+*.lol
+*.pdf
+
+# Editor
+.vscode/
+.idea/
+.obsidian/
+out/
+*.iml

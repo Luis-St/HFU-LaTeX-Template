@@ -1,0 +1,296 @@
+% # HFU LaTeX Vorlage
+%
+% Autor: Luis Staudt
+% Korrigiert für HFU-Compliance
+% Lizenz: Free to use, but please keep this header
+% Hinweis: Wir übernehmen keine Garantie für die Richtigkeit der Vorlage
+
+
+% ##################################################
+% ENCODING
+% ##################################################
+\usepackage{cmap}               % PDF character encoding
+\usepackage[T1]{fontenc}        % 8-bit font encoding
+\usepackage[utf8]{inputenc}     % UTF-8 input encoding
+\usepackage[german]{babel}      % Sprache festlegen
+
+
+% ##################################################
+% DOCUMENT VARIABLES
+% ##################################################
+\newcommand{\thesistype}{Projektarbeit/Praxissemesterbericht/Bachelorarbeit/Masterarbeit}
+\newcommand{\studyProgram}{Informatik}
+\newcommand{\thesistitle}{Title of the Thesis}
+\newcommand{\thesissubtitle}{Subtitle of the Thesis}
+\newcommand{\supervisorname}{Prof. Dr. Supervisor Name}
+\newcommand{\cosupervisorname}{Prof. Dr. Co-Supervisor Name}
+\newcommand{\deadline}{\today}
+
+\newcommand{\authorname}{Your Name}
+\newcommand{\matriculationNumber}{xxxxxx}
+\newcommand{\streetName}{Street Name, House Number}
+\newcommand{\postalCode}{12345}
+\newcommand{\city}{City Name}
+\newcommand{\mail}{user-name@stud.hs-furtwangen.de}
+
+
+% ##################################################
+% GENERAL
+% ##################################################
+\usepackage{scrhack} % better KOMA adaptions
+\usepackage[table]{xcolor} % color support
+\usepackage{chngcntr} % for renumbering stuff
+\usepackage{amsthm}
+\usepackage{lipsum} % lorem ipsum generator
+
+
+% ##################################################
+% PDF SETTINGS
+% ##################################################
+\usepackage[
+	colorlinks=false,
+	linkcolor=black,
+	citecolor=black,
+	filecolor=black,
+	urlcolor=black,
+	bookmarks=true,
+	bookmarksopen=true,
+	bookmarksopenlevel=3,
+	bookmarksnumbered,
+	plainpages=false,
+	pdfpagelabels=true,
+	hyperfootnotes,
+	pdftitle ={\thesistitle},
+	pdfauthor={\authorname},
+	pdfcreator={\authorname}
+]{hyperref}
+
+
+% ##################################################
+% FONTS AND SPACING
+% ##################################################
+\usepackage{lmodern}                        % Latin Modern Schrift
+\renewcommand{\familydefault}{\rmdefault}   % Serifenschrift
+\usepackage[onehalfspacing]{setspace}       % 1.5 Zeilenabstand
+\raggedbottom   % don't stretch spacing to fit page length
+
+\usepackage{anyfontsize} % use any font size
+
+\addtokomafont{chapter}{\fontsize{14}{18}\selectfont\bfseries}    % 14pt fett für Hauptkapitel
+\addtokomafont{section}{\fontsize{12}{15}\selectfont\bfseries}    % 12pt fett für Unterkapitel (Ebene 2)
+\addtokomafont{subsection}{\fontsize{12}{15}\selectfont}          % 12pt normal für Unterkapitel (Ebene 3)
+\addtokomafont{caption}{\fontsize{12}{15}\selectfont}             % 12pt für Bildunterschriften
+
+\addtokomafont{pagehead}{\fontsize{12}{15}\selectfont\bfseries}
+
+% url font style
+\usepackage{relsize}
+\renewcommand*{\UrlFont}{\ttfamily\smaller\relax}
+
+
+% ##################################################
+% PAGE FORMATTING
+% ##################################################
+% Page layout / Seitenränder - HFU-konform
+\usepackage[
+	bindingoffset=1.5cm,    % Bundsteg
+	inner=2.5cm,            % Innenrand
+	outer=2.5cm,            % Außenrand
+	top=3cm,                % Oberrand
+	bottom=2cm              % Unterrand
+]{geometry}
+
+% KORREKTUR: Befehl für symmetrische Ränder (für Titelblatt)
+\newcommand{\symmetricmargins}{%
+	\newgeometry{
+		left=2.5cm,
+		right=2.5cm,
+		top=3cm,
+		bottom=2cm
+	}%
+}
+
+% Befehl zum Zurücksetzen auf HFU-Ränder
+\newcommand{\hfumargins}{%
+	\newgeometry{
+		bindingoffset=1.5cm,
+		inner=2.5cm,
+		outer=2.5cm,
+		top=3cm,
+		bottom=2cm
+	}%
+}
+
+
+% Command for creating new pages
+\newcommand{\newchapterpage}{\cleardoublepage}
+\newcommand{\newsectionpage}{\clearpage}
+\newcommand{\blankpage}{\newpage\thispagestyle{empty}\mbox{}\newpage}
+
+% Command for emphasis
+\newcommand{\emphtext}[1]{\textbf{#1}}
+\newcommand{\codetext}[1]{\texttt{#1}}
+
+% Custom commands for common phrases
+\newcommand{\chapterref}[1]{Kapitel~\ref{#1}}
+\newcommand{\sectionref}[1]{Abschnitt~\ref{#1}}
+
+\newcommand{\figureref}[1]{Bild~\ref{#1}}
+\newcommand{\tableref}[1]{Tabelle~\ref{#1}}
+\newcommand{\listingref}[1]{Code-Block~\ref{#1}}
+\newcommand{\equationref}[1]{Gleichung~\ref{#1}}
+
+
+% Page header
+\usepackage[
+	headsepline,        % seperator line beneath page header on normal pages
+	plainheadsepline    % seperator line beneath page header on pages like ToC
+]{scrlayer-scrpage}
+\clearpairofpagestyles                  % clear default settings
+\ohead*{\thepage}                       % page number außen
+\ihead*{\leftmark}                      % chapter name innen
+
+
+% ##################################################
+% IMAGES AND FIGURES
+% ##################################################
+\usepackage{graphicx}       % support for including images
+\graphicspath{{images/}}    % default path
+
+% simple numbering without chapter
+\renewcommand{\thefigure}{\arabic{figure}}
+\counterwithout{figure}{chapter}
+
+\usepackage{wrapfig}       % wrap text around figures
+
+
+% ##################################################
+% TABLES
+% ##################################################
+\usepackage{booktabs}   % beautiful table style
+\usepackage{multirow}   % multi row and multi column table functionality
+
+% simple numbering without chapter
+\renewcommand{\thetable}{\arabic{table}}
+\counterwithout{table}{chapter}
+
+
+% ##################################################
+% SOURCE CODE LISTINGS
+% ##################################################
+\usepackage{listings}
+\usepackage{beramono}   % use a typewriter font which supports bold characters
+
+\renewcommand{\lstlistlistingname}{Verzeichnis der Code-Blöcke}
+\renewcommand{\lstlistingname}{Code-Block}
+\newcommand{\listoflolentryname}{\lstlistingname}
+
+% define colors for source code highlighting
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.5,0,0.33}
+\definecolor{codepurblue}{rgb}{0.16,0.0,1.0}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% set source code style
+\lstdefinestyle{codestyle}{
+	backgroundcolor=\color{backcolour},
+	commentstyle=\color{codegreen},
+	keywordstyle=\bfseries\color{codepurple},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurblue},
+	basicstyle=\fontsize{10}{12}\ttfamily,  % 10pt für Code (HFU Tabellengröße)
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=left,
+	numbersep=5pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=2,
+	escapeinside={(*@}{@*)}
+}
+\lstset{style=codestyle, numberbychapter=false}
+
+
+% ##################################################
+% TABLE OF CONTENTS
+% ##################################################
+\KOMAoptions{toc=chapterentrydotfill}       % dotted lines for chapters
+\addtokomafont{chapterentry}{\normalfont}   % use normal font for zentrierung entries
+\setuptoc{toc}{totoc}                       % add ToC to ToC
+
+% spacing
+\DeclareTOCStyleEntry[beforeskip=0cm]{chapter}{chapter}
+\DeclareTOCStyleEntry[beforeskip=0cm]{section}{section}
+\DeclareTOCStyleEntry[beforeskip=0cm]{default}{subsection}
+
+% colons after entry names
+\BeforeStartingTOC[lof]{\def\autodot{:}}
+\BeforeStartingTOC[lot]{\def\autodot{:}}
+\BeforeStartingTOC[lol]{\def\autodot{:}}
+
+
+% ##################################################
+% BIBLIOGRAPHY
+% ##################################################
+\usepackage{csquotes} % context sensitive quotation
+\usepackage[backend=biber,style=ieee,sorting=none]{biblatex} % bibliography support
+\addbibresource{bibtex.bib} % bibliography file
+
+% HFU-konform: 1,5-zeiliger Abstand zwischen Einträgen, 1-zeilig innerhalb der Einträge
+\setlength\bibitemsep{1.5\baselineskip} % 1,5-zeiliger Abstand zwischen Einträgen
+\renewcommand*{\bibsetup}{\singlespacing} % 1-zeilig innerhalb der Einträge
+
+\setcounter{biburlnumpenalty}{9000} % break URLs on numbers
+\setcounter{biburllcpenalty}{9000}  % break URLs on lower case letters
+\setcounter{biburlucpenalty}{9000}  % break URLs on upper case letters
+
+
+% ##################################################
+% ABBREVIATIONS
+% ##################################################
+\usepackage[printonlyused]{acronym}
+
+
+% ##################################################
+% APPENDIX
+% ##################################################
+\usepackage[title,titletoc]{appendix}
+
+% appendix chapter
+\newcommand{\appendixchapter}[1]{
+	\newchapterpage
+	\pagenumbering{arabic}
+	\renewcommand{\thepage}{\thechapter-\arabic{page}}
+	\chapter{#1}
+}
+
+% insert monthly report pdf as picture in order to keep page header
+\newcommand{\monthlyreport}[2]{
+	\section{#1}
+	\centering
+	\includegraphics[trim=55 35 55 35,clip,width=1\textwidth]{#2}
+	\newsectionpage
+}
+
+
+% ##################################################
+% Theoreme
+% ##################################################
+\newtheorem{beispiel}{Beispiel}
+
+% Umgebung fuer These
+\newtheorem{these}{These}
+
+% Umgebung fuer Definitionen
+\newtheorem{definition}{Definition}
+
+
+% ##################################################
+% MISC
+% ##################################################
+% better referencing of images, tables, etc.
+\usepackage[nameinlink, noabbrev]{cleveref}

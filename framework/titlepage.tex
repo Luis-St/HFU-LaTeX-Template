@@ -1,0 +1,46 @@
+\symmetricmargins
+
+\begin{titlepage}
+	\pagestyle{empty}
+	\begin{center}
+		
+		% HFU Logo
+		\includegraphics[width=0.3\textwidth]{images/hfu}
+		
+		\vspace{0.5cm}
+		
+		{\fontsize{18}{23} \selectfont \thesistype} \\%[3mm]
+		% {\fontsize{18}{23} \selectfont im Bereich} \\[3mm]
+		% {\fontsize{18}{23} \selectfont \studyProgram}\\
+		
+		\vspace{1.5cm}
+		
+		{\fontsize{22}{28} \selectfont \emphtext{\thesistitle}}
+		
+		\makeatletter
+		\ifx\thesissubtitle\@empty
+		\vspace{5.5cm}
+		\else
+		\vspace{8mm}
+			{\fontsize{18}{23} \selectfont \thesissubtitle}
+			\vspace{5cm}
+		\fi
+		\makeatother
+		
+		% Tabelle mit Informationen - 12pt
+		{\fontsize{12}{16} \selectfont
+			\begin{tabular}{@{}ll@{}}
+				\emphtext{Referent:}      & \supervisorname                          \\[3mm]
+				\emphtext{Korreferent:}   & \cosupervisorname                        \\[3mm]
+				\emphtext{Vorgelegt am:}  & \deadline                            \\[3mm]
+				\emphtext{Vorgelegt von:} & \authorname                              \\
+				& Matrikelnummer: \matriculationNumber \\
+				& \streetName                          \\
+				& \postalCode~\city                 \\
+				& \mail
+			\end{tabular}
+		}
+	\end{center}
+\end{titlepage}
+
+\hfumargins

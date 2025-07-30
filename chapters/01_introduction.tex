@@ -1,0 +1,123 @@
+% Sample Chapter: Introduction
+\chapter{Einleitung}
+\label{ch:introduction}
+
+Diese Einleitung führt in das Thema der Arbeit ein und stellt die Problemstellung vor.
+Folgende Punkte sollten hier behandelt werden:
+
+\section{Abkürzungen und Begriffe}
+\label{sec:abbreviations_and_terms}
+In diesem Abschnitt werden wichtige Abkürzungen und Begriffe definiert, die in der Arbeit verwendet werden.
+\acl{JVM} steht für Java Virtual Machine, eine Laufzeitumgebung für Java-Anwendungen.
+\acs{HTML} bezeichnet Hypertext Markup Language, die Standard-Auszeichnungssprache für Webseiten.
+
+\section{Motivation}
+\label{sec:motivation}
+
+Die Motivation erklärt, warum das behandelte Thema relevant ist und welche praktischen oder theoretischen Probleme gelöst werden sollen.
+
+% Example citation
+Wie bereits in der Literatur~\cite{example_book} gezeigt wurde, ist dieses Problem von großer Bedeutung.
+Weitere Studien~\cite{example_article} bestätigen diese Einschätzung und zeigen die praktische Relevanz auf.
+
+\section{Problemstellung}
+\label{sec:problem_statement}
+
+Die Problemstellung beschreibt konkret, welches Problem in dieser Arbeit behandelt wird.
+Sie sollte präzise und mit klaren Abgrenzungen formuliert werden.
+
+Aktuelle Forschungsarbeiten~\cite{example_conference} haben gezeigt, dass bestehende Ansätze verschiedene Limitierungen aufweisen.
+Insbesondere die von \textcite{example_article} identifizierten Herausforderungen erfordern neue Lösungsansätze.
+
+\section{Zielsetzung}
+\label{sec:objectives}
+
+Die Zielsetzung definiert, was mit dieser Arbeit erreicht werden soll.
+Die Ziele sollten:
+
+\begin{itemize}
+	\item Messbar sein
+	\item Realistisch erreichbar sein
+	\item Einen klaren Beitrag leisten
+\end{itemize}
+
+Basierend auf den Erkenntnissen aus~\cite{example_report} werden in dieser Arbeit folgende Ziele verfolgt:
+
+\begin{enumerate}
+	\item Entwicklung eines verbesserten Ansatzes
+	\item Evaluierung der Leistungsfähigkeit
+	\item Vergleich mit bestehenden State-of-the-Art-Methoden
+\end{enumerate}
+
+\section{Aufbau der Arbeit}
+\label{sec:structure}
+
+Dieser Abschnitt gibt einen Überblick über den Aufbau der Arbeit:
+
+\begin{description}
+	\item[\chapterref{ch:fundamentals}] behandelt die theoretischen Grundlagen
+	\item[Weitere Kapitel] folgen der logischen Struktur der Problemlösung
+\end{description}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{hfu}
+	\caption{Beispielabbildung der Gesamtsystemarchitektur}
+	\label{fig:example}
+\end{figure}
+
+Wie in \figureref{fig:example} dargestellt, besteht das System aus mehreren Komponenten, die miteinander interagieren.
+
+% Example table
+\begin{table}[htbp]
+	\centering
+	\caption{Vergleich verschiedener Ansätze}
+	\label{tab:comparison}
+	\begin{tabular}{@{}lcc@{}}
+		\toprule
+		\emphtext{Kriterium} & \emphtext{Ansatz 1} & \emphtext{Ansatz 2} \\
+		\midrule
+		Genauigkeit & 95\% & 87\% \\
+		Geschwindigkeit & 1,2s & 2,1s \\
+		Speicherverbrauch & 512MB & 256MB \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\tableref{tab:comparison} zeigt, dass Ansatz 1 eine bessere Genauigkeit erreicht, aber mehr Speicher benötigt.
+
+% Example code listing
+\begin{lstlisting}[language=Python, caption=Beispiel Python-Code, label=lst:example]
+def berechne_genauigkeit(vorhersagen, grundwahrheit):
+    """Berechnet die Genauigkeit von Vorhersagen."""
+    korrekt = sum(v == gw for v, gw in zip(vorhersagen, grundwahrheit))
+    gesamt = len(vorhersagen)
+    return korrekt / gesamt if gesamt > 0 else 0.0
+
+# Verwendungsbeispiel
+pred = [1, 0, 1, 1, 0]
+wahrheit = [1, 0, 0, 1, 0]
+genauigkeit = berechne_genauigkeit(pred, wahrheit)
+print(f"Genauigkeit: {genauigkeit:.2%}")
+\end{lstlisting}
+
+Der Code in \listingref{lst:example} demonstriert, wie Genauigkeitsmetriken berechnet werden können.
+
+\section{Forschungsfragen}
+\label{sec:research_questions}
+
+Diese Arbeit behandelt folgende Forschungsfragen:
+
+\begin{enumerate}
+	\item Wie kann \emphtext{Methode X} verbessert werden, um eine bessere Leistung zu erzielen?
+	\item Was sind die Limitierungen aktueller Ansätze in \emphtext{Bereich Y}?
+	\item Wie schneidet die vorgeschlagene Lösung im Vergleich zu bestehenden State-of-the-Art-Methoden ab?
+\end{enumerate}
+
+Diese Fragen werden im Verlauf der Arbeit systematisch beantwortet, mit besonderem Fokus auf \emphtext{Forschungsfrage 1}.
+
+\section{Methodik}
+\label{sec:methodology}
+
+Die methodische Herangehensweise orientiert sich an bewährten Praktiken des Software Engineering~\cite{example_web} und berücksichtigt aktuelle Standards~\cite{example_standard}.
+Ähnliche Ansätze wurden bereits in~\cite{example_thesis} erfolgreich angewendet.
